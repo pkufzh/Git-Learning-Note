@@ -37,7 +37,7 @@ Initialized empty Git repository in /Users/michael/learngit/.git/
 
   千万不要使用Windows自带的**记事本**编辑任何文本文件。原因是 Microsoft 开发记事本的团队使用了一个非常弱智的行为来保存 UTF-8 编码的文件，他们自作聪明地在每个文件开头添加了0xefbbbf（十六进制）的字符，你会遇到很多不可思议的问题，比如，网页第一行可能会显示一个“?”，明明正确的程序一编译就报语法错误，等等，都是由记事本的弱智行为带来的。建议你下载[Visual Studio Code](https://code.visualstudio.com/)代替记事本，不但功能强大，而且免费！
 
-Two Steps:
+**Two Steps:**
 
 - 初始化一个Git仓库，使用`git init`命令。
 
@@ -171,7 +171,7 @@ Git支持多种协议，包括`https`，但`ssh`协议速度最快。
 
 ### 创建与合并分支
 
-Git鼓励大量使用分支：
+Git 鼓励大量使用分支：
 
 - 查看分支：`git branch`
 
