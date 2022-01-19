@@ -192,3 +192,4 @@ Git 鼓励**大量使用**分支：
 解决冲突就是把 Git 合并失败的文件手动编辑为我们希望的内容，再提交。
 
 用`git log --graph --pretty=oneline --abbrev-commit`命令可以看到分支合并图。
+
