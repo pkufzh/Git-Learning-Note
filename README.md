@@ -3,9 +3,7 @@
 
 *本浓缩版 Git 学习笔记全部来自 **廖雪峰老师** 的官方网站：[点击跳转](https://www.liaoxuefeng.com/wiki/896043488029600)*
 
-*非常感谢廖老师生动有趣的 Git 教程！膜拜 Linus 大神！*
-
-
+*非常感谢廖老师生动有趣的 Git 教程！在此膜拜 Linus 大神！*
 
 ## Git 简介
 
@@ -14,8 +12,6 @@ Git 是什么？What is Git?
 Git 是**目前世界上最先进**的**分布式版本控制系统**（没有之一！）。
 
 Git 有什么特点？简单来说就是：**高端大气上档次！**
-
-
 
 ## 安装 Git
 
@@ -28,8 +24,6 @@ Git 有什么特点？简单来说就是：**高端大气上档次！**
 最新发布版本：[Git Newest Release](https://git-scm.com/)
 
 下面正式开始教程内容~
-
-
 
 ## 1 创建版本库
 
@@ -75,8 +69,6 @@ Initialized empty Git repository in /Users/michael/learngit/.git/
 
   - 使用命令`git add `，注意，可反复多次使用，添加多个文件；
   - 使用命令`git commit -m `，完成。
-
-
 
 ## 2 时光机穿梭
 
@@ -179,9 +171,7 @@ $ ssh-keygen -t rsa -C "youremail@example.com"
 
 要克隆一个仓库，首先必须知道仓库的地址，然后使用`git clone`命令克隆。
 
-Git 支持多种协议，包括`https`，但`ssh`协议速度最快！
-
-
+当然，Git 支持多种协议，包括`https`，但`ssh`协议速度最快！
 
 ## 4 分支管理
 
@@ -300,8 +290,6 @@ Git 分支十分强大，在团队开发中应该充分应用。
 - rebase 操作可以把本地未push的分叉提交历史整理成直线；
 - rebase 的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。
 
-
-
 ## 5 标签管理
 
 **tag** 就是一个让人容易记住的有意义的名字，它跟某个 commit 绑在一起。
@@ -319,15 +307,11 @@ Git 分支十分强大，在团队开发中应该充分应用。
 - 命令`git tag -d `可以删除一个本地标签；
 - 命令`git push origin :refs/tags/`可以删除一个远程标签。
 
-
-
 ## 6 使用 Github
 
 - 在 GitHub 上，可以任意 Fork 开源仓库；
 - 自己拥有 Fork 后的仓库的读写权限；
 - 可以推送 pull request 给官方仓库来贡献代码。
-
-
 
 ## 7 自定义 Git
 
@@ -376,19 +360,15 @@ $ cat .gitconfig
 - 要方便管理公钥，用[Gitosis](https://github.com/res0nat0r/gitosis)；
 - 要像SVN那样变态地控制权限，用[Gitolite](https://github.com/sitaramc/gitolite)。
 
-
-
 ## 8 使用 SourceTree
 
 使用 SourceTree 可以以**图形界面（GUI界面）**操作 Git，省去了敲命令的过程，对于常用的提交、分支、推送等操作来说非常方便。
 
 注意：SourceTree 使用 Git 命令执行操作，出错时，仍然需要阅读 Git 命令返回的错误信息。
 
-
-
 ## 拓展资料
 
-下面是一些 Git 相关学习资料：
+下面是一些与 Git 相关的学习教程：
 
 - [猴子都能懂的Git入门](https://backlog.com/git-tutorial/cn/)
 
@@ -416,8 +396,6 @@ $ cat .gitconfig
 - [GitHub秘籍](https://github.com/tiimgreen/github-cheat-sheet/blob/master/README.zh-cn.md)
 
   主要包含`git`和`github`常用技巧，适合有一定基础的同学想要进一步掌握一些高级技巧~
-
-
 
 ------
 
