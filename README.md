@@ -272,3 +272,79 @@ Git 分支十分强大，在团队开发中应该充分应用。
 - 从远程抓取分支，使用`git pull`，如果有冲突，要先处理冲突。
 
 ### Rebase
+
+- rebase操作可以把本地未push的分叉提交历史整理成直线；
+- rebase的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。
+
+
+
+## 标签管理
+
+tag 就是一个让人容易记住的有意义的名字，它跟某个 commit 绑在一起。
+
+### 创建标签
+
+- 命令`git tag `用于新建一个标签，默认为`HEAD`，也可以指定一个 commit id；
+- 命令`git tag -a  -m "blablabla..."`可以指定标签信息；
+- 命令`git tag`可以查看所有标签。
+
+### 操作标签
+
+- 命令`git push origin `可以推送一个本地标签；
+- 命令`git push origin --tags`可以推送全部未推送过的本地标签；
+- 命令`git tag -d `可以删除一个本地标签；
+- 命令`git push origin :refs/tags/`可以删除一个远程标签。
+
+
+
+## 使用 Github
+
+- 在GitHub上，可以任意Fork开源仓库；
+- 自己拥有Fork后的仓库的读写权限；
+- 可以推送pull request给官方仓库来贡献代码。
+
+
+
+
+
+## 自定义 Git
+
+在[安装Git](https://www.liaoxuefeng.com/wiki/896043488029600/896067074338496)一节中，我们已经配置了`user.name`和`user.email`，实际上，Git还有很多可配置项。
+
+比如，让Git显示颜色，会让命令输出看起来更醒目：
+
+```bash
+$ git config --global color.ui true
+```
+
+### 忽略特定文件
+
+在Git工作区的根目录下创建一个特殊的`.gitignore`文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件。
+
+不需要从头写`.gitignore`文件，GitHub已经为我们准备了各种配置文件，只需要组合一下就可以使用了。所有配置文件可以直接在线浏览：https://github.com/github/gitignore
+
+- 忽略某些文件时，需要编写`.gitignore`；
+- 把指定文件排除在`.gitignore`规则外的写法就是`!`+文件名，所以，只需把例外文件添加进去即可。
+- `.gitignore`文件本身要放到版本库里，并且可以对`.gitignore`做版本管理！
+
+### 配置别名
+
+给Git配置好别名，就可以输入命令时偷个懒。我们鼓励偷懒。
+
+- 每个仓库的Git配置文件都放在`.git/config`文件中：
+- 当前用户的Git配置文件放在用户主目录下的一个隐藏文件`.gitconfig`中：
+
+```bash
+$ cat .gitconfig
+[alias]
+    co = checkout
+    ci = commit
+    br = branch
+    st = status
+[user]
+    name = Your Name
+    email = your@email.com
+```
+
+配置别名也可以直接修改这个文件，如果改错了，可以删掉文件重新通过命令配置。
+
