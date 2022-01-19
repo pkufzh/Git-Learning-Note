@@ -1,9 +1,39 @@
-# Git 学习笔记（gitskills）2022/01/19
-## 创建版本库
+# Git 学习笔记（2022/01/19）
+***整理作者：pkufzh (Small Shrimp)***
 
-### 总览
+*本浓缩版 Git 学习笔记全部来自 **廖雪峰老师** 的官方网站：[点击跳转](https://www.liaoxuefeng.com/wiki/896043488029600)*
 
-什么是版本库呢？版本库又名仓库，英文名 **repository**，你可以简单理解成一个目录，这个目录里面的所有文件都可以被 Git 管理起来，每个文件的修改、删除，Git 都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻可以“还原”。
+*非常感谢廖老师生动有趣的 Git 教程！膜拜 Linus 大神！*
+
+
+
+## Git 简介
+
+Git 是什么？What is Git?
+
+Git 是**目前世界上最先进**的**分布式版本控制系统**（没有之一！）。
+
+Git 有什么特点？简单来说就是：**高端大气上档次！**
+
+
+
+## 安装 Git
+
+最早 Git 是在 ***Linux*** 上开发的，很长一段时间内，Git 也只能在 Linux 和 Unix 系统上跑。不过，慢慢地有人把它移植到了 Windows 上。现在，Git 可以在 Linux、Unix、Mac 和 Windows 这几大平台上正常运行了。
+
+要使用 Git ，第一步当然是安装 Git 了。根据你当前使用的平台进行安装：
+
+具体步骤参考：[Git 安装教程](https://www.liaoxuefeng.com/wiki/896043488029600/896067074338496)
+
+最新发布版本：[Git Newest Release](https://git-scm.com/)
+
+下面正式开始教程内容~
+
+
+
+## 1 创建版本库
+
+什么是版本库呢？版本库又名**仓库**，英文名 **repository**，你可以简单理解成一个目录，这个目录里面的所有文件都可以被 Git 管理起来，每个文件的修改、删除，Git 都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻可以“还原”。
 
 所以，创建一个版本库非常简单：
 
@@ -18,7 +48,7 @@ $ pwd
 
 `pwd` 命令用于显示当前目录。
 
-如果你使用Windows系统，为了避免遇到各种莫名其妙的问题，请确保目录名（包括父目录）不包含中文。
+如果你使用 Windows 系统，为了避免遇到各种莫名其妙的问题，**请确保目录名（包括父目录）不包含中文**。
 
 - 第二步，通过`git init`命令把这个目录变成Git可以管理的仓库：
 
@@ -33,22 +63,22 @@ Initialized empty Git repository in /Users/michael/learngit/.git/
 
 ### 把文件添加到版本库
 
-- **使用Windows的童鞋要特别注意：**
+**使用Windows的童鞋要特别注意：**
 
-  千万不要使用Windows自带的**记事本**编辑任何文本文件。原因是 Microsoft 开发记事本的团队使用了一个非常弱智的行为来保存 UTF-8 编码的文件，他们自作聪明地在每个文件开头添加了 0xefbbbf（十六进制）的字符，你会遇到很多不可思议的问题，比如，网页第一行可能会显示一个“?”，明明正确的程序一编译就报语法错误，等等，都是由记事本的弱智行为带来的。建议你下载[Visual Studio Code](https://code.visualstudio.com/)代替记事本，不但功能强大，而且免费！
+千万不要使用Windows自带的 **记事本** 编辑任何文本文件。原因是 Microsoft 开发记事本的团队使用了一个非常弱智的行为来保存 *UTF-8* 编码的文件，他们自作聪明地在每个文件开头添加了 **0xefbbbf（十六进制）**的字符，你会遇到很多不可思议的问题，比如，网页第一行可能会显示一个“?”，明明正确的程序一编译就报语法错误，等等，都是由记事本的弱智行为带来的。建议你下载 **[Visual Studio Code](https://code.visualstudio.com/)** 代替记事本，不但功能强大，而且免费！
 
-**Two Steps:**
+**两个步骤：**
 
 - 初始化一个Git仓库，使用`git init`命令。
 
 - 添加文件到Git仓库，分两步：
 
-1. 使用命令`git add `，注意，可反复多次使用，添加多个文件；
-2. 使用命令`git commit -m `，完成。
+  - 使用命令`git add `，注意，可反复多次使用，添加多个文件；
+  - 使用命令`git commit -m `，完成。
 
-## 时光机穿梭
 
-### 总览
+
+## 2 时光机穿梭
 
 - 要随时掌握工作区的状态，使用`git status`命令。
 - 如果`git status`告诉你有文件被修改过，用`git diff`可以查看修改内容。
@@ -63,13 +93,13 @@ Initialized empty Git repository in /Users/michael/learngit/.git/
 
 Git 和其他版本控制系统如 SVN 的一个不同之处就是有暂存区的概念。
 
-#### 工作区（Working Directory）
+**工作区（Working Directory）**
 
 就是你在电脑里能看到的目录，比如我的`learngit`文件夹就是一个工作区：
 
-#### 版本库（Repository）
+**版本库（Repository）**
 
-工作区有一个隐藏目录`.git`，这个不算工作区，而是Git的版本库。
+工作区有一个隐藏目录`.git`，这个不算工作区，而是 Git 的版本库。
 
 Git 的版本库里存了很多东西，其中最重要的就是称为 stage（或者叫 index）的暂存区，还有Git为我们自动创建的第一个分支`master`，以及指向`master`的一个指针叫`HEAD`。
 
@@ -85,8 +115,6 @@ Git 的版本库里存了很多东西，其中最重要的就是称为 stage（�
 
 你可以简单理解为，需要提交的文件修改通通放到暂存区，然后，一次性提交暂存区的所有修改。
 
-
-
 ![git-stage](https://www.liaoxuefeng.com/files/attachments/919020074026336/0)
 
 ### 管理修改
@@ -99,19 +127,19 @@ Git 的版本库里存了很多东西，其中最重要的就是称为 stage（�
 
 ### 撤销修改
 
-- 场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令`git checkout -- file`。
+- **场景1：**当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令`git checkout -- file`。
 
-- 场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令`git reset HEAD `，就回到了场景1，第二步按场景1操作。
+- **场景2：**当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令`git reset HEAD `，就回到了场景1，第二步按场景1操作。
 
-- 场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考[版本回退](https://www.liaoxuefeng.com/wiki/896043488029600/897013573512192)一节，不过前提是没有推送到远程库。
+- **场景3：**已经提交了不合适的修改到版本库时，想要撤销本次提交，参考<a href="#版本回退">版本回退</a>一节，不过前提是没有推送到远程库。
 
 ### 删除文件
 
 - 命令`git rm`用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失**最近一次提交后你修改的内容**。
 
-## 远程仓库
+## 3 远程仓库
 
-- 第1步：创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有`id_rsa`和`id_rsa.pub`这两个文件，如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：
+- **第1步：**创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有`id_rsa`和`id_rsa.pub`这两个文件，如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：
 
 ```bash
 $ ssh-keygen -t rsa -C "youremail@example.com"
@@ -121,9 +149,9 @@ $ ssh-keygen -t rsa -C "youremail@example.com"
 
 如果一切顺利的话，可以在用户主目录里找到`.ssh`目录，里面有`id_rsa`和`id_rsa.pub`两个文件，这两个就是SSH Key的秘钥对，`id_rsa`是私钥，不能泄露出去，`id_rsa.pub`是公钥，可以放心地告诉任何人。
 
-- 第2步：登陆 GitHub，打开“Account settings”，“SSH Keys”页面：
+- **第2步：**登陆 GitHub，打开 “Account settings”，“SSH Keys” 页面：
 
-然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴`id_rsa.pub`文件的内容即可。
+然后，点 “Add SSH Key”，填上任意 Title，在 Key 文本框里粘贴`id_rsa.pub`文件的内容即可。
 
 为什么 GitHub 需要SSH Key呢？因为 GitHub 需要识别出你推送的提交确实是你推送的，而不是别人冒充的，而Git支持SSH协议，所以，GitHub 只要知道了你的公钥，就可以确认只有你自己才能推送。
 
@@ -133,33 +161,29 @@ $ ssh-keygen -t rsa -C "youremail@example.com"
 
 如果你不想让别人看到Git库，有两个办法，一个是交点保护费，让 GitHub 把公开的仓库变成私有的，这样别人就看不见了（不可读更不可写）。另一个办法是自己动手，搭一个Git服务器，因为是你自己的Git服务器，所以别人也是看不见的。这个方法我们后面会讲到的，相当简单，公司内部开发必备。
 
-确保你拥有一个 GitHub 账号后，我们就即将开始远程仓库的学习。
-
 *“有了远程仓库，妈妈再也不用担心我的硬盘了。”——Git点读机*
 
 ### 添加远程库
 
 - 要关联一个远程库，使用命令`git remote add origin git@server-name:path/repo-name.git`；
 
-- 关联一个远程库时必须给远程库指定一个名字，`origin`是默认习惯命名；
+- 关联一个远程库时**必须给远程库指定一个名字**，`origin`是默认习惯命名；
 
-- 关联后，使用命令`git push -u origin master`第一次推送master分支的所有内容；
+- 关联后，使用命令`git push -u origin master`第一次推送 master 分支的所有内容；
 
 - 此后，每次本地提交后，只要有必要，就可以使用命令`git push origin master`推送最新修改；
 
-分布式版本系统的最大好处之一是在本地工作完全不需要考虑远程库的存在，也就是有没有联网都可以正常工作，而SVN在没有联网的时候是拒绝干活的！当有网络的时候，再把本地提交推送一下就完成了同步，真是太方便了！
+分布式版本系统的最大好处之一是在本地工作完全不需要考虑远程库的存在，也就是有没有联网都可以正常工作，而 SVN 在没有联网的时候是拒绝干活的！当有网络时，再把本地提交推送一下就完成了同步，真是太方便了！
 
 ### 从远程库克隆
 
 要克隆一个仓库，首先必须知道仓库的地址，然后使用`git clone`命令克隆。
 
-Git支持多种协议，包括`https`，但`ssh`协议速度最快。
+Git 支持多种协议，包括`https`，但`ssh`协议速度最快！
 
 
 
-## 分支管理
-
-### 总览
+## 4 分支管理
 
 *分支就是科幻电影里面的平行宇宙，当你正在电脑前努力学习 Git 的时候，另一个你正在另一个平行宇宙里努力学习  SVN 。如果两个平行宇宙互不干扰，那对现在的你也没啥影响。不过，在某个时间点，两个平行宇宙合并了，结果，你既学会了 Git 又学会了 SVN！*
 
@@ -195,11 +219,11 @@ Git 鼓励**大量使用**分支：
 
 ### 分支管理策略
 
-- **合并分支 & 记录分支信息**
+**合并分支 & 记录分支信息**
 
 通常，合并分支时，如果可能，Git 会用`Fast forward`模式，但这种模式下，删除分支后，会丢掉分支信息。
 
-如果要强制禁用`Fast forward`模式，Git 就会在merge时生成一个新的 commit，这样，从分支历史上就可以看出分支信息。
+如果要强制禁用`Fast forward`模式，Git 就会在 merge 时生成一个新的 commit，这样，从分支历史上就可以看出分支信息。
 
 准备合并`dev`分支，请注意`--no-ff`参数，表示禁用`Fast forward`：
 
@@ -228,13 +252,13 @@ $ git log --graph --pretty=oneline --abbrev-commit
 
 ![git-no-ff-mode](https://www.liaoxuefeng.com/files/attachments/919023225142304/0)
 
-- **分支策略**
+**分支策略**
 
 在实际开发中，我们应该按照几个基本原则进行分支管理：
 
 首先，`master`分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；
 
-那在哪干活呢？干活都在`dev`分支上，也就是说，`dev`分支是不稳定的，到某个时候，比如1.0版本发布时，再把`dev`分支合并到`master`上，在`master`分支发布1.0版本；
+那在哪干活呢？干活都在`dev`分支上，也就是说，`dev`分支是不稳定的，到某个时候，比如 1.0 版本发布时，再把`dev`分支合并到`master`上，在`master`分支发布 1.0 版本；
 
 你和你的小伙伴们每个人都在`dev`分支上干活，每个人都有自己的分支，时不时地往`dev`分支上合并就可以了。
 
@@ -254,7 +278,7 @@ Git 分支十分强大，在团队开发中应该充分应用。
 
 当手头工作没有完成时，先把工作现场`git stash`一下，然后去修复 bug，修复后，再`git stash pop`，回到工作现场；
 
-在master分支上修复的 bug，想要合并到当前 dev 分支，可以用`git cherry-pick `命令，把bug提交的修改“复制”到当前分支，避免重复劳动。
+在 master 分支上修复的 bug，想要合并到当前 dev 分支，可以用`git cherry-pick `命令，把bug提交的修改“复制”到当前分支，避免重复劳动。
 
 ### Feature 分支
 
@@ -271,16 +295,16 @@ Git 分支十分强大，在团队开发中应该充分应用。
 - 建立本地分支和远程分支的关联，使用`git branch --set-upstream branch-name origin/branch-name`；
 - 从远程抓取分支，使用`git pull`，如果有冲突，要先处理冲突。
 
-### Rebase
+### Rebase 操作
 
-- rebase操作可以把本地未push的分叉提交历史整理成直线；
-- rebase的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。
+- rebase 操作可以把本地未push的分叉提交历史整理成直线；
+- rebase 的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。
 
 
 
-## 标签管理
+## 5 标签管理
 
-tag 就是一个让人容易记住的有意义的名字，它跟某个 commit 绑在一起。
+**tag** 就是一个让人容易记住的有意义的名字，它跟某个 commit 绑在一起。
 
 ### 创建标签
 
@@ -297,21 +321,19 @@ tag 就是一个让人容易记住的有意义的名字，它跟某个 commit �
 
 
 
-## 使用 Github
+## 6 使用 Github
 
-- 在GitHub上，可以任意Fork开源仓库；
-- 自己拥有Fork后的仓库的读写权限；
-- 可以推送pull request给官方仓库来贡献代码。
-
-
+- 在 GitHub 上，可以任意 Fork 开源仓库；
+- 自己拥有 Fork 后的仓库的读写权限；
+- 可以推送 pull request 给官方仓库来贡献代码。
 
 
 
-## 自定义 Git
+## 7 自定义 Git
 
-在[安装Git](https://www.liaoxuefeng.com/wiki/896043488029600/896067074338496)一节中，我们已经配置了`user.name`和`user.email`，实际上，Git还有很多可配置项。
+在<a href="#安装 Git">安装 Git</a>一节中，我们已经配置了`user.name`和`user.email`，实际上，Git还有很多可配置项。
 
-比如，让Git显示颜色，会让命令输出看起来更醒目：
+比如，让 Git 显示颜色，会让命令输出看起来更醒目：
 
 ```bash
 $ git config --global color.ui true
@@ -319,9 +341,9 @@ $ git config --global color.ui true
 
 ### 忽略特定文件
 
-在Git工作区的根目录下创建一个特殊的`.gitignore`文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件。
+在 Git 工作区的根目录下创建一个特殊的`.gitignore`文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件。
 
-不需要从头写`.gitignore`文件，GitHub已经为我们准备了各种配置文件，只需要组合一下就可以使用了。所有配置文件可以直接在线浏览：https://github.com/github/gitignore
+不需要从头写`.gitignore`文件，**GitHub 已经为我们准备了各种配置文件**，只需要组合一下就可以使用了。所有配置文件可以直接在线浏览：https://github.com/github/gitignore
 
 - 忽略某些文件时，需要编写`.gitignore`；
 - 把指定文件排除在`.gitignore`规则外的写法就是`!`+文件名，所以，只需把例外文件添加进去即可。
@@ -329,10 +351,10 @@ $ git config --global color.ui true
 
 ### 配置别名
 
-给Git配置好别名，就可以输入命令时偷个懒。我们鼓励偷懒。
+给 Git 配置好别名，就可以输入命令时偷个懒。我们鼓励偷懒。
 
-- 每个仓库的Git配置文件都放在`.git/config`文件中：
-- 当前用户的Git配置文件放在用户主目录下的一个隐藏文件`.gitconfig`中：
+- 每个仓库的 Git 配置文件都放在`.git/config`文件中：
+- 当前用户的 Git 配置文件放在用户主目录下的一个隐藏文件`.gitconfig`中：
 
 ```bash
 $ cat .gitconfig
@@ -348,3 +370,67 @@ $ cat .gitconfig
 
 配置别名也可以直接修改这个文件，如果改错了，可以删掉文件重新通过命令配置。
 
+### 搭建 Git 服务器
+
+- 搭建Git服务器非常简单，通常10分钟即可完成；
+- 要方便管理公钥，用[Gitosis](https://github.com/res0nat0r/gitosis)；
+- 要像SVN那样变态地控制权限，用[Gitolite](https://github.com/sitaramc/gitolite)。
+
+
+
+## 8 使用 SourceTree
+
+使用 SourceTree 可以以**图形界面（GUI界面）**操作 Git，省去了敲命令的过程，对于常用的提交、分支、推送等操作来说非常方便。
+
+注意：SourceTree 使用 Git 命令执行操作，出错时，仍然需要阅读 Git 命令返回的错误信息。
+
+
+
+## 拓展资料
+
+下面是一些 Git 相关学习资料：
+
+- [猴子都能懂的Git入门](https://backlog.com/git-tutorial/cn/)
+
+  内容全面，图文并茂，涵盖初级、中级、高级。
+
+- [廖雪峰 Git 教程](https://www.liaoxuefeng.com/wiki/896043488029600)（本文参考）
+
+  浅显易懂，适合初学者~
+
+- [Git 官方网站](http://git-scm.com/)，有纯正的英文[官网教程](https://git-scm.com/book/zh/v2)可供参考哟~
+
+- [Learn Git Branching](https://learngitbranching.js.org/?locale=zh_CN)
+
+  一个在线 Git 学习网站，通过可视化交互方式学习 Git 相关操作。动画做的很棒！但适合有一定基础的同学。
+
+其他有趣的 Git & Github 学习资料：
+
+- [Github 中文社区](https://www.githubs.cn/)
+
+- [GitHub官方10分钟入门教程](https://docs.github.com/en/get-started/quickstart/hello-world)
+
+  GitHub 官方出品~教学内容包含：新建仓库、新建分支、修改提交 (Commit) 以及请求拉取 (Pull Request)。
+  原文为英文版，中文翻译可以点击[此处](https://www.jianshu.com/p/3a81cab0cae7)
+
+- [GitHub秘籍](https://github.com/tiimgreen/github-cheat-sheet/blob/master/README.zh-cn.md)
+
+  主要包含`git`和`github`常用技巧，适合有一定基础的同学想要进一步掌握一些高级技巧~
+
+
+
+------
+
+^_^ This is the END of the page / document. Thank you for reading!
+
+*Finished by **pkufzh (Small Shrimp)** on* **2022/01/19**.
+
+**<u>Contact me:</u>**
+
+Github Homepage: https://github.com/pkufzh
+
+Research Gate: https://www.researchgate.net/profile/Zhenghao-Feng
+
+Bilibili Space: https://space.bilibili.com/167343763
+
+*Who am I? A happy shrimp from Peking University!*
