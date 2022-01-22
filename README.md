@@ -370,7 +370,7 @@ $ cat .gitconfig
 
 下面是一些与 Git 相关的学习教程：
 
-- [猴子都能懂的Git入门](https://backlog.com/git-tutorial/cn/)
+- [猴子都能懂的 Git 入门](https://backlog.com/git-tutorial/cn/)
 
   内容全面，图文并茂，涵盖初级、中级、高级。
 
